@@ -1,0 +1,99 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.body {
+  background-color: #f4f4f7;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+  }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+  .btn {
+    background: green;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .tab-link {
+    width: 25%;
+    float: left;
+    display: inline-block;
+  }
+  .ripple {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: .5;
+    animation-name: ripple;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    z-index: 0;
+    pointer-events: none;
+  }
+  @keyframes ripple {
+    from { transform: translate(-50%, -50%) scale(.1); opacity: .5}
+    to {transform:  translate(-50%, -50%) scale(10); opacity: 0}
+  }
+
+.row {
+  width: 100%;
+}
+.row:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+  border-radius: 2px;
+  margin: 10px;
+}
+.card .ripple {
+   background-color: #999;
+}
+.card-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.col {
+  float: left;
+  padding: 10px;
+}
+.col-2 {
+  width: 16.7%;
+}
+.col-10 {
+  width: 83.3%;
+}
+
+.fix-bottom {
+  position: fixed;
+  bottom: 0;
+}
+
+.chat {
+  padding-bottom: 100px;
+}

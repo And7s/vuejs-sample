@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript" src=vue-router@2.0.0.js></script>
+</head>
+<body>
+
+<div id="app">
+
+
+<div class="tabs clearfix">
+  <router-link to="/foo" class="btn tab-link" v-ripple>Go to overview</router-link>
+  <router-link to="/bar" class="btn tab-link" v-ripple>Go to Bar</router-link>
+  <router-link to="/p3" class="btn tab-link" v-ripple>Go to p3</router-link>
+  <router-link to="/p4" class="btn tab-link" v-ripple>Go to p4</router-link>
+</div>
+
+ <router-view></router-view>
+</div>
+
+<script type="text/x-template" id="fake-list">
+  <div>
+    Hello hello hello {{ list.length }}
+    <div v-for="item in list" v-bind:id="item._id" class="card" v-ripple v-on:click="goTo(item._id)">
+      <div class="row">
+        <div class="col col-2">
+          <img v-bind:src="item.picture">
+        </div>
+        <div class="col col-10">
+          <h1>
+            {{ item.name }}
+            <span v-if="item.gender=='female'">♀</span>
+            <span v-if="item.gender=='male'">♂</span>
+          </h1>
+          <div>
+            eyeColor: {{ item.eyeColor }}<br />
+            email: {{ item.email }}<br />
+            phone: {{ item.phone }}<br />
+            balance: {{ item.balance }}<br />
+            friends ({{ item.friends.length }})
+            <ol>
+              <li v-for="friend in item.friends">
+                {{ friend.id }}: {{ friend.name }}
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="">
+          {{ item.about }}
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/x-template" id="fake-detail">
+  <div>
+  asdkjasdhajksdhaskdjahsdk
+    <div class="row">
+      <div class="col col-2">
+        <img v-bind:src="item.picture">
+      </div>
+      <div class="col col-10">
+        <h1>
+          {{ item.name }}
+          <span v-if="item.gender=='female'">♀</span>
+          <span v-if="item.gender=='male'">♂</span>
+        </h1>
+        <div>
+          eyeColor: {{ item.eyeColor }}<br />
+          email: {{ item.email }}<br />
+          phone: {{ item.phone }}<br />
+          balance: {{ item.balance }}<br />
+          friends ({{ item.friends.length }})
+          <ol>
+            <li v-for="friend in item.friends">
+              {{ friend.id }}: {{ friend.name }}
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="">
+        {{ item.about }}
+      </div>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/x-template" id="chat">
+  <div class="chat">
+    <h1>I am the chat</h1>
+    <div v-for="m in msg">
+      {{ transformTime(m.time) }} {{ m.msg }}
+    </div>
+    <div class="fix-bottom">
+      {{ inp }}
+      <input type="text" v-model="inp">
+      <div class="btn" id="bb" v-ripple v-on:click="send()">send</div>
+    </div>
+  </div>
+</script>
+
+
+<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD91jAlNdELBlybnpvh5jaFVZ0H37Ha638",
+    authDomain: "vuejs-76ea8.firebaseapp.com",
+    databaseURL: "https://vuejs-76ea8.firebaseio.com",
+    storageBucket: "vuejs-76ea8.appspot.com",
+    messagingSenderId: "199369779522"
+  };
+  firebase.initializeApp(config);
+
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="fake_data.json"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
